@@ -1,0 +1,1486 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Claridad Continua | Modelo de Negocio Inclusivo</title>
+
+  <meta name="description" content="Claridad Continua: modelo de negocio inclusivo para acceso a energía solar con financiamiento flexible, capacitación y soporte local en comunidades vulnerables." />
+  <meta name="theme-color" content="#E30613" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph básico -->
+  <meta property="og:title" content="Claridad Continua | Modelo de Negocio Inclusivo" />
+  <meta property="og:description" content="Acceso a energía solar con pagos accesibles, capacitación y soporte local. Modelo inclusivo y medible." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --uvm-red: #E30613;
+      --uvm-red-dark: #990000;
+      --black: #000000;
+      --white: #FFFFFF;
+      --gray-bg: #f4f4f4;
+      --focus-color: #FFD54F;
+      --border: #e8e8e8;
+      --muted: #555;
+      --maxw: 1100px;
+
+      --shadow: 0 10px 28px rgba(0,0,0,.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body{
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      color: var(--black);
+      background:
+        radial-gradient(900px 500px at 10% 0%, rgba(227,6,19,.08), transparent 55%),
+        radial-gradient(900px 500px at 90% 10%, rgba(0,0,0,.08), transparent 55%),
+        var(--white);
+      text-rendering: optimizeLegibility;
+
+      /* MARCO ROJO UVM (sin romper layout) */
+      box-shadow: inset 0 0 0 14px var(--uvm-red);
+    }
+
+    /* Modo oscuro (opcional) */
+    html.theme-dark body{
+      background: #0c0c0c;
+      color: #f3f3f3;
+      box-shadow: inset 0 0 0 14px var(--uvm-red);
+    }
+    html.theme-dark .card,
+    html.theme-dark .indicator,
+    html.theme-dark .note,
+    html.theme-dark .table-wrap{
+      background: #141414 !important;
+      border-color: rgba(255,255,255,.12) !important;
+    }
+    html.theme-dark .mini, html.theme-dark figcaption { color: rgba(255,255,255,.70) !important; }
+    html.theme-dark header { background: #0f0f0f; border-bottom-color: rgba(255,255,255,.12); }
+    html.theme-dark .kpi-table th { background: #191919; }
+
+    /* Visually hidden but accessible */
+    .sr-only {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+      border: 0;
+      padding: 0;
+      margin: -1px;
+    }
+
+    /* Skip link */
+    .skip-link{
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus{
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: 0.6rem 0.9rem;
+      background: var(--black);
+      color: var(--white);
+      z-index: 10000;
+      border-radius: 6px;
+      text-decoration: none;
+      outline: 3px solid var(--focus-color);
+      outline-offset: 3px;
+    }
+
+    /* Preferencias de movimiento */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
+    }
+
+    /* Barra de progreso de scroll */
+    .scroll-progress{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: rgba(0,0,0,.08);
+      z-index: 9999;
+    }
+    .scroll-progress > span{
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--uvm-red), #ff5a66);
+    }
+
+    header{
+      text-align: center;
+      padding: clamp(1.6rem, 4vw, 2.5rem) 1rem 1.25rem;
+      background-color: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo-uvm{
+      max-width: 180px;
+      margin-bottom: 0.5rem;
+      height: auto;
+      width: 180px;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.10));
+    }
+
+    h1{
+      margin: 0.25rem 0 0.25rem 0;
+      letter-spacing: 0.02em;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    }
+
+    .hero{
+      max-width: var(--maxw);
+      margin: 1rem auto 0;
+      padding: 0 1rem;
+    }
+    .hero img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fafafa;
+      box-shadow: var(--shadow);
+      cursor: zoom-in;
+    }
+    .hero figcaption{
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-top: 0.5rem;
+    }
+
+    .highlight-point{
+      color: var(--uvm-red-dark);
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin: 10px 0;
+    }
+
+    /* NAV convertido a tabs */
+    nav{
+      background-color: var(--black);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 4px solid var(--uvm-red);
+    }
+
+    .nav-container{
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      padding: 0.35rem 0.5rem;
+    }
+
+    @media (max-width: 560px){
+      .nav-container{
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scroll-snap-type: x mandatory;
+      }
+      .tab-btn { scroll-snap-align: start; }
+    }
+
+    .tab-btn{
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+      padding: 0.85rem 1.05rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      border-radius: 10px;
+      white-space: nowrap;
+      position: relative;
+    }
+    .tab-btn:hover{ color: var(--uvm-red); }
+    .tab-btn:active{ transform: translateY(1px); }
+    .tab-btn[aria-selected="true"]{
+      background: rgba(255,255,255,0.12);
+      color: var(--white);
+      box-shadow: inset 0 -3px 0 var(--uvm-red);
+    }
+
+    a:focus, button:focus { outline: 3px solid var(--focus-color); outline-offset: 3px; }
+
+    .container{
+      max-width: var(--maxw);
+      margin: auto;
+      padding: clamp(1rem, 3vw, 2rem);
+    }
+
+    .tab-panel{
+      padding: clamp(1.8rem, 3vw, 2.5rem) 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-panel[hidden]{ display: none; }
+
+    h2, h3{ font-style: italic; font-weight: 800; }
+
+    h2{
+      color: var(--black);
+      font-size: clamp(1.4rem, 3.2vw, 2rem);
+      border-left: 10px solid var(--uvm-red);
+      padding-left: 1rem;
+      text-transform: uppercase;
+      margin-top: 0;
+    }
+    html.theme-dark h2{ color: #fff; }
+
+    h3{ margin-top: 0; font-size: 1.22rem; }
+
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .card{
+      background: var(--gray-bg);
+      padding: 1.25rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 22px rgba(0,0,0,.06);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.10);
+    }
+
+    .mini{ color: var(--muted); margin-top: 0.25rem; }
+
+    figure { margin: 0.75rem 0 1rem 0; }
+    figure img{
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fafafa;
+      box-shadow: var(--shadow);
+      cursor: zoom-in;
+    }
+    figcaption{ color: var(--muted); margin-top: 0.5rem; font-size: 0.95rem; }
+
+    ul{ padding-left: 1.2rem; }
+    li{ margin: 0.4rem 0; }
+
+    .reference-list{
+      text-align: left;
+      display: inline-block;
+      margin-top: 10px;
+      max-width: 900px;
+    }
+
+    footer{
+      background-color: var(--black);
+      color: var(--white);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    footer p{ margin: 0.35rem 0; }
+
+    /* === Indicadores (mejorados) === */
+    .indicator{
+      background: var(--gray-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 8px 22px rgba(0,0,0,.06);
+    }
+
+    .indicator .tag{
+      display: inline-block;
+      padding: 0.18rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(227,6,19,0.10);
+      border: 1px solid rgba(227,6,19,0.25);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .indicator .kpi-line{
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--uvm-red-dark);
+      margin: 0.25rem 0 0.9rem 0;
+    }
+
+    .kpi-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+      margin:.6rem 0 1rem;
+    }
+    .kpi-pill{
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(255,255,255,.7);
+      border-radius: 999px;
+      padding: .35rem .65rem;
+      font-weight: 800;
+      font-size: .92rem;
+    }
+    html.theme-dark .kpi-pill{
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .indicator dl{ margin: 0; }
+    .indicator dt{ font-weight: 900; margin-top: 0.75rem; }
+    .indicator dd{ margin: 0.25rem 0 0 0; color: var(--black); }
+    html.theme-dark .indicator dd{ color:#f3f3f3; }
+
+    .note{
+      border-left: 6px solid var(--uvm-red);
+      padding: 0.75rem 1rem;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 22px rgba(0,0,0,.06);
+    }
+    html.theme-dark .note{ background:#141414; }
+
+    .table-wrap{
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      margin-top: 1rem;
+      box-shadow: 0 8px 22px rgba(0,0,0,.06);
+    }
+    html.theme-dark .table-wrap{ background:#141414; }
+
+    table.kpi-table{
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+    .kpi-table th, .kpi-table td{
+      text-align: left;
+      padding: 0.85rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .kpi-table th{
+      background: #fafafa;
+      font-weight: 900;
+    }
+
+    /* Galería de imágenes */
+    .gallery{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .gallery figure{
+      margin:0;
+      background: rgba(255,255,255,.6);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .gallery img{
+      width:100%;
+      height: 170px;
+      object-fit: cover;
+      display:block;
+      cursor: zoom-in;
+    }
+    .gallery figcaption{
+      padding:.65rem .85rem;
+      font-size:.95rem;
+    }
+    html.theme-dark .gallery figure{ background: rgba(255,255,255,.06); }
+
+    /* Acordeón con <details> */
+    details{
+      margin-top: .75rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(255,255,255,.6);
+      padding: .75rem;
+    }
+    details summary{
+      cursor: pointer;
+      font-weight: 900;
+      color: var(--uvm-red-dark);
+      outline: none;
+    }
+    html.theme-dark details{
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+    }
+
+    /* Botones flotantes */
+    .fab{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      display: grid;
+      gap: 10px;
+      z-index: 9999;
+    }
+    .fab button{
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.15);
+      background: rgba(255,255,255,.92);
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(0,0,0,.15);
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .fab button:hover{ transform: translateY(-1px); }
+    .fab button:active{ transform: translateY(0px); }
+    html.theme-dark .fab button{
+      background: rgba(30,30,30,.92);
+      border-color: rgba(255,255,255,.15);
+      color:#fff;
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 10000;
+    }
+    .lightbox[aria-hidden="false"]{ display:flex; }
+    .lightbox-inner{
+      width: min(1100px, 96vw);
+      background: #0b0b0b;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+    .lightbox-inner img{
+      width: 100%;
+      height: auto;
+      display:block;
+      background:#111;
+    }
+    .lightbox-bar{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap:.75rem;
+      padding: .75rem 1rem;
+      color:#fff;
+    }
+    .lightbox-bar .cap{ color: rgba(255,255,255,.85); font-weight: 700; }
+    .lightbox-bar button{
+      border: 0;
+      background: var(--uvm-red);
+      color:#fff;
+      font-weight: 900;
+      border-radius: 10px;
+      padding: .55rem .9rem;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  <!-- Botones flotantes -->
+  <div class="fab" aria-label="Acciones rápidas">
+    <button id="themeToggle" type="button" aria-label="Cambiar tema (claro/oscuro)">🌓</button>
+    <button id="toTop" type="button" aria-label="Volver arriba" hidden>↑</button>
+  </div>
+
+  <header id="inicio">
+    <!-- Si NO tienes el logo en /images, no pasa nada: se ocultará solo -->
+    <img
+      src="./images/uvm-logo.png"
+      alt="Logotipo Universidad del Valle de México"
+      class="logo-uvm"
+      width="180" height="90"
+      decoding="async"
+      onerror="this.style.display='none'">
+
+    <h1>CLARIDAD CONTINUA</h1>
+    <p class="highlight-point">"Energía que transforma el mañana"</p>
+
+    <!-- HERO: imagen ONLINE (se ve aunque no tengas carpeta images) -->
+    <figure class="hero">
+      <img
+        src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=70"
+        alt="Paneles solares bajo el sol, simbolizando energía limpia y accesible"
+        width="1100" height="650"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        data-lightbox="true"
+        data-caption="Acceso a energía limpia con acompañamiento y financiamiento inclusivo.">
+      <figcaption>Acceso a energía segura y asequible para fortalecer hogares y comunidades.</figcaption>
+    </figure>
+  </header>
+
+  <nav aria-label="Navegación principal">
+    <div class="nav-container" role="tablist" aria-label="Secciones del proyecto" aria-orientation="horizontal">
+      <button class="tab-btn" role="tab" aria-selected="true"  tabindex="0"  aria-controls="panel-modelo"      id="tab-modelo">El Modelo</button>
+      <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-problema"    id="tab-problema">El Problema</button>
+      <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-solucion"    id="tab-solucion">La Solución</button>
+      <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-objetivo"    id="tab-objetivo">Grupo Objetivo</button>
+      <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-canvas"      id="tab-canvas">Canvas</button>
+      <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-indicadores" id="tab-indicadores">Indicadores</button>
+      <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-metodo"      id="tab-metodo">Metodología</button>
+      <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-referencias" id="tab-referencias">Referencias</button>
+    </div>
+  </nav>
+
+  <main id="main-content" class="container" role="main">
+
+    <!-- PANEL 1: MODELO -->
+    <section id="panel-modelo" class="tab-panel" role="tabpanel" aria-labelledby="tab-modelo" tabindex="0">
+      <h2>Modelo de Negocio Inclusivo</h2>
+
+      <p>
+        Claridad Continua opera bajo el enfoque <strong>Inclusive Business for Development (IB4D)</strong>.
+        El objetivo es ofrecer soluciones reales (no “caridad momentánea”) que permitan acceso a energía limpia
+        con un modelo de mercado accesible, sostenible y medible.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Misión</h3>
+          <p class="mini">Qué hacemos y para qué existimos.</p>
+          <p>Brindar kits solares inclusivos con financiamiento flexible, capacitación y soporte local para reducir el gasto energético y mejorar la seguridad y bienestar en hogares de bajos ingresos.</p>
+        </div>
+
+        <div class="card">
+          <h3>Visión</h3>
+          <p class="mini">A dónde queremos llegar.</p>
+          <p>Ser un modelo replicable en México que acelere la transición a energía limpia en comunidades marginadas, fortaleciendo economía familiar, educación y oportunidades.</p>
+        </div>
+
+        <div class="card">
+          <h3>Principios del modelo</h3>
+          <p class="highlight-point">● Participación activa del usuario (no beneficiario pasivo).</p>
+          <p class="highlight-point">● Eliminación de barreras económicas con pagos escalonados.</p>
+          <p class="highlight-point">● Autonomía energética y mejora sostenible de la calidad de vida.</p>
+        </div>
+
+        <div class="card">
+          <h3>¿Cómo se sostiene?</h3>
+          <ul>
+            <li><strong>Ingresos:</strong> pagos semanales/mensuales por el kit y soporte.</li>
+            <li><strong>Costos:</strong> adquisición de equipo, logística, capacitación y servicio técnico local.</li>
+            <li><strong>Alianzas:</strong> microfinancieras, líderes comunitarios y técnicos locales.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="margin-top:1.5rem;">Galería del proyecto</h3>
+      <div class="gallery" aria-label="Galería de imágenes del modelo">
+        <figure>
+          <img data-lightbox="true" data-caption="Energía solar comunitaria: base para autonomía energética."
+               src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1400&q=70"
+               alt="Paneles solares en techo con cielo azul">
+          <figcaption>Autonomía energética y ahorro familiar.</figcaption>
+        </figure>
+        <figure>
+          <img data-lightbox="true" data-caption="Capacitación práctica para uso correcto del kit."
+               src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d1?auto=format&fit=crop&w=1400&q=70"
+               alt="Persona recibiendo capacitación técnica">
+          <figcaption>Capacitación + soporte local.</figcaption>
+        </figure>
+        <figure>
+          <img data-lightbox="true" data-caption="Soporte local = sostenibilidad + empleo."
+               src="https://images.unsplash.com/photo-1520975661595-6453be3f7070?auto=format&fit=crop&w=1400&q=70"
+               alt="Equipo técnico trabajando en instalación">
+          <figcaption>Red de técnicos comunitarios.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PANEL 2: PROBLEMA -->
+    <section id="panel-problema" class="tab-panel" role="tabpanel" aria-labelledby="tab-problema" tabindex="0" hidden>
+      <h2>Problema a Resolver</h2>
+
+      <p>
+        En comunidades rurales y zonas urbanas marginadas, muchas familias enfrentan una crisis energética silenciosa:
+        pagan demasiado, tienen servicio irregular o recurren a soluciones peligrosas.
+      </p>
+
+      <figure aria-labelledby="fig-problema-caption">
+        <img
+          src="https://images.unsplash.com/photo-1518459031867-a89b944bffe4?auto=format&fit=crop&w=1600&q=70"
+          alt="Hogar con iluminación tenue, simbolizando limitaciones de acceso"
+          loading="lazy"
+          decoding="async"
+          width="1100" height="650"
+          data-lightbox="true"
+          data-caption="El reto es multidimensional: economía, infraestructura, seguridad y acceso.">
+        <figcaption id="fig-problema-caption">El reto es multidimensional: economía, infraestructura, seguridad y acceso.</figcaption>
+      </figure>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Impacto económico</h3>
+          <p class="highlight-point">● El gasto en energía puede absorber gran parte del ingreso.</p>
+          <p class="highlight-point">● Comprar tecnología “de golpe” es difícil para muchas familias.</p>
+        </div>
+        <div class="card">
+          <h3>Riesgos y desigualdad</h3>
+          <p class="highlight-point">● Soluciones inseguras generan riesgos (humo, incendios, accidentes).</p>
+          <p class="highlight-point">● Fallas eléctricas que afectan estudio, salud y trabajo.</p>
+        </div>
+        <div class="card">
+          <h3>Consecuencias directas</h3>
+          <ul>
+            <li>Menos horas de estudio y trabajo por mala iluminación.</li>
+            <li>Mayor inseguridad en casa y calles.</li>
+            <li>Gastos extra por soluciones temporales.</li>
+          </ul>
+        </div>
+      </div>
+
+      <details>
+        <summary>Interacción extra: mini-quiz (rápido)</summary>
+        <p class="mini" style="margin-top:.5rem;">
+          ¿Qué te afecta más en un hogar vulnerable?
+        </p>
+        <div class="grid" style="margin-top:.5rem;">
+          <button class="tab-btn" type="button" style="background:#111; text-transform:none;" data-toast="✅ Elegiste: Ahorro económico">Ahorro económico</button>
+          <button class="tab-btn" type="button" style="background:#111; text-transform:none;" data-toast="✅ Elegiste: Seguridad en el hogar">Seguridad</button>
+          <button class="tab-btn" type="button" style="background:#111; text-transform:none;" data-toast="✅ Elegiste: Continuidad para estudio/trabajo">Continuidad</button>
+        </div>
+      </details>
+    </section>
+
+    <!-- PANEL 3: SOLUCIÓN -->
+    <section id="panel-solucion" class="tab-panel" role="tabpanel" aria-labelledby="tab-solucion" tabindex="0" hidden>
+      <h2>La Solución: Kit Solar Inclusivo</h2>
+
+      <p>
+        Ofrecemos tecnología limpia <strong>sin inversión inicial elevada</strong>, con microfinanciamiento,
+        capacitación y soporte técnico local.
+      </p>
+
+      <figure aria-labelledby="fig-sol-caption">
+        <img
+          src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=1600&q=70"
+          alt="Instalación de paneles solares en un entorno comunitario"
+          loading="lazy"
+          decoding="async"
+          width="1100" height="650"
+          data-lightbox="true"
+          data-caption="Energía limpia adaptada al contexto real de las comunidades.">
+        <figcaption id="fig-sol-caption">Energía limpia adaptada al contexto real de las comunidades.</figcaption>
+      </figure>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Componentes del Kit</h3>
+          <ul>
+            <li class="highlight-point">● Panel solar compacto de bajo costo.</li>
+            <li class="highlight-point">● Batería de respaldo y caja de conexiones.</li>
+            <li class="highlight-point">● Manual visual y capacitación paso a paso.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Propuesta de Valor</h3>
+          <p class="highlight-point">● Pagos accesibles (semanales/mensuales).</p>
+          <p class="highlight-point">● Ahorro + iluminación + seguridad.</p>
+          <p class="highlight-point">● Garantía + servicio técnico local.</p>
+        </div>
+
+        <div class="card">
+          <h3>Cómo se implementa</h3>
+          <ol>
+            <li>Diagnóstico rápido de necesidades (iluminación, carga, seguridad).</li>
+            <li>Instalación guiada + capacitación práctica.</li>
+            <li>Seguimiento (mantenimiento y resolución de fallas).</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h3>Dinámica rápida (interactiva)</h3>
+          <p class="mini">Simula un “antes vs después” (solo visual).</p>
+          <label for="simAhorro"><strong>Ahorro estimado</strong> (mueve el control)</label>
+          <input id="simAhorro" type="range" min="20" max="70" value="45" style="width:100%;">
+          <p class="highlight-point" style="margin: .5rem 0 0;">Ahorro: <span id="simOut">45</span>%</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:1.5rem;">Galería (solución en acción)</h3>
+      <div class="gallery" aria-label="Galería de imágenes de solución">
+        <figure>
+          <img data-lightbox="true" data-caption="Instalación sencilla con acompañamiento."
+               src="https://images.unsplash.com/photo-1592833159155-7d7b11b6eab1?auto=format&fit=crop&w=1400&q=70"
+               alt="Manos instalando un componente eléctrico">
+          <figcaption>Instalación guiada y segura.</figcaption>
+        </figure>
+        <figure>
+          <img data-lightbox="true" data-caption="Iluminación eficiente para tareas educativas."
+               src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1400&q=70"
+               alt="Persona estudiando con luz LED">
+          <figcaption>Más horas de estudio/trabajo.</figcaption>
+        </figure>
+        <figure>
+          <img data-lightbox="true" data-caption="Energía para conectar y comunicar."
+               src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1400&q=70"
+               alt="Teléfono cargando conectado a energía">
+          <figcaption>Carga de dispositivos y comunicación.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PANEL 4: GRUPO OBJETIVO -->
+    <section id="panel-objetivo" class="tab-panel" role="tabpanel" aria-labelledby="tab-objetivo" tabindex="0" hidden>
+      <h2>Grupo Objetivo e Interacción</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Perfil del grupo objetivo</h3>
+          <p class="highlight-point">● Familias de bajos ingresos en zonas marginadas.</p>
+          <p class="highlight-point">● Alta sensibilidad al gasto y necesidad de soluciones seguras.</p>
+          <p class="highlight-point">● Hogares con fallas constantes o acceso limitado a energía confiable.</p>
+        </div>
+
+        <div class="card">
+          <h3>Objetivo general</h3>
+          <p>Reducir la desigualdad energética ofreciendo un kit solar accesible con acompañamiento, para mejorar seguridad, bienestar y oportunidades de desarrollo.</p>
+
+          <h3>Objetivos específicos</h3>
+          <ul>
+            <li>Disminuir el gasto energético del hogar.</li>
+            <li>Aumentar horas de iluminación segura para estudio/trabajo.</li>
+            <li>Capacitar a usuarios para uso y cuidado del sistema.</li>
+            <li>Crear soporte técnico local (empleo y sostenibilidad).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Interacción con la comunidad</h3>
+          <ul>
+            <li>Reuniones informativas (lenguaje claro y ejemplos).</li>
+            <li>Demostraciones prácticas y “prueba guiada”.</li>
+            <li>Seguimiento técnico programado y soporte.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Modelo de ingreso</h3>
+          <p class="highlight-point">● Pagos semanales o mensuales de bajo monto.</p>
+          <p class="highlight-point">● Planes escalonados según consumo y necesidades.</p>
+          <p class="mini">Pago posible, soporte real, resultado medible.</p>
+        </div>
+      </div>
+
+      <figure aria-labelledby="fig-bici-caption">
+        <img
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=70"
+          alt="Camino hacia un futuro sostenible, simbolizando bienestar"
+          loading="lazy"
+          decoding="async"
+          width="1100" height="650"
+          data-lightbox="true"
+          data-caption="Impacto esperado: bienestar, seguridad y más oportunidades para el futuro.">
+        <figcaption id="fig-bici-caption">Impacto esperado: bienestar, seguridad y más oportunidades para el futuro.</figcaption>
+      </figure>
+    </section>
+
+    <!-- PANEL 5: CANVAS -->
+    <section id="panel-canvas" class="tab-panel" role="tabpanel" aria-labelledby="tab-canvas" tabindex="0" hidden>
+      <h2>Business Model Canvas (Resumen)</h2>
+      <p class="mini">Estructura clara para explicar cómo funciona el modelo y cómo se sostiene.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Propuesta de valor</h3>
+          <ul>
+            <li>Kits solares accesibles sin pago inicial alto.</li>
+            <li>Capacitación + manual visual + acompañamiento.</li>
+            <li>Soporte técnico local y garantía básica.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Segmentos de clientes</h3>
+          <ul>
+            <li>Hogares de bajos ingresos con gasto energético alto.</li>
+            <li>Comunidades con servicio eléctrico irregular.</li>
+            <li>Zonas marginadas rurales/urbanas.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Canales</h3>
+          <ul>
+            <li>Líderes comunitarios y brigadas informativas.</li>
+            <li>Alianzas con microfinancieras y programas locales.</li>
+            <li>Demostraciones en campo y recomendaciones.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Relación con clientes</h3>
+          <ul>
+            <li>Instalación guiada y capacitación práctica.</li>
+            <li>Seguimiento programado (mantenimiento).</li>
+            <li>Soporte por WhatsApp/llamadas con técnicos locales.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Fuentes de ingreso</h3>
+          <ul>
+            <li>Pagos semanales/mensuales por kit (microfinanciamiento).</li>
+            <li>Paquetes de mantenimiento (opcional).</li>
+            <li>Servicios de ampliación (más paneles/batería).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Recursos clave</h3>
+          <ul>
+            <li>Inventario de kits (panel, batería, cableado).</li>
+            <li>Red de técnicos capacitados.</li>
+            <li>Guías visuales y materiales de capacitación.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Actividades clave</h3>
+          <ul>
+            <li>Diagnóstico y dimensionamiento del kit.</li>
+            <li>Instalación + capacitación + seguimiento.</li>
+            <li>Gestión de pagos y soporte de incidencias.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Socios clave & Costos</h3>
+          <p><strong>Socios</strong></p>
+          <ul>
+            <li>Microfinancieras / cooperativas</li>
+            <li>Gobiernos locales / ONGs</li>
+            <li>Proveedores certificados</li>
+          </ul>
+          <p><strong>Costos</strong></p>
+          <ul>
+            <li>Compra y logística del equipo</li>
+            <li>Capacitación y soporte técnico</li>
+            <li>Operación y cobranza</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 6: INDICADORES -->
+    <section id="panel-indicadores" class="tab-panel" role="tabpanel" aria-labelledby="tab-indicadores" tabindex="0" hidden>
+      <h2>Indicadores de Éxito (KPI) — Actualizados</h2>
+
+      <div class="note">
+        <p style="margin:0;">
+          <strong>Enfoque:</strong> indicadores con <strong>definición clara</strong>, <strong>metas realistas</strong>,
+          <strong>referencias típicas</strong> y <strong>medición simple</strong>.
+        </p>
+      </div>
+
+      <div class="grid" style="margin-top:1.2rem;">
+        <!-- 1 -->
+        <article class="indicator">
+          <span class="tag">1️⃣ Ahorro mensual</span>
+          <h3>Ahorro mensual en electricidad</h3>
+          <p class="kpi-line">Indicador: ↓ % de gasto mensual en electricidad</p>
+
+          <div class="kpi-badges">
+            <span class="kpi-pill">Meta: <span class="kpi-number" data-to="60">0</span>%</span>
+            <span class="kpi-pill">Rango: 40–60%</span>
+            <span class="kpi-pill">Periodo: 3 meses</span>
+          </div>
+
+          <dl>
+            <dt>Cómo se mide</dt>
+            <dd>Comparar recibo CFE <strong>3 meses antes</strong> vs <strong>3 meses después</strong> de la instalación, usando <strong>promedio</strong>.</dd>
+
+            <dt>Meta realista</dt>
+            <dd><strong>40% – 60%</strong> de ahorro mensual (según dimensionamiento y consumo).</dd>
+
+            <dt>Cómo medirlo sin volverte loco</dt>
+            <dd>Guarda 6 recibos, calcula el promedio y aplica: <strong>((Antes − Después) / Antes) × 100</strong>.</dd>
+
+            <dt>Meta en el proyecto</dt>
+            <dd><strong>Meta:</strong> Reducir el gasto mensual en electricidad entre <strong>40% y 60%</strong> durante los primeros <strong>3 meses</strong>.</dd>
+          </dl>
+
+          <details>
+            <summary>Referencia típica (por qué este rango)</summary>
+            <p class="mini">
+              Greenpeace reporta ahorros aproximados de <strong>40–60%</strong> en autoconsumo (varía por hábitos y sistema). [1](https://es.greenpeace.org/es/noticias/cuanto-me-puedo-ahorrar-si-instalo-placas-solares/)[2](https://www.radioformula.com.mx/estilodevida/Cuanto-dinero-ahorras-en-tu-recibo-CFE-con-un-panelsolarencasa-20250205-0091.html)
+            </p>
+          </details>
+        </article>
+
+        <!-- 2 -->
+        <article class="indicator">
+          <span class="tag">2️⃣ Iluminación segura</span>
+          <h3>Horas de iluminación segura</h3>
+          <p class="kpi-line">Indicador: ↑ horas/día de iluminación disponible</p>
+
+          <div class="kpi-badges">
+            <span class="kpi-pill">Meta: +<span class="kpi-number" data-to="8">0</span> h/día</span>
+            <span class="kpi-pill">Rango: +4 a +8</span>
+            <span class="kpi-pill">Medición: encuesta</span>
+          </div>
+
+          <dl>
+            <dt>Cómo se mide</dt>
+            <dd>Encuesta antes/después: “¿Cuántas horas de iluminación confiable tiene al día?”</dd>
+
+            <dt>Meta realista</dt>
+            <dd><strong>+4 a +8</strong> horas diarias (conservador para kits básicos).</dd>
+
+            <dt>Cómo medirlo sin volverte loco</dt>
+            <dd>Una pregunta, misma familia. Mide antes y a las 4–8 semanas después.</dd>
+
+            <dt>Meta en el proyecto</dt>
+            <dd><strong>Meta:</strong> Incrementar entre <strong>4 y 8</strong> horas diarias de iluminación segura.</dd>
+          </dl>
+
+          <details>
+            <summary>Referencia típica (por qué este rango)</summary>
+            <p class="mini">
+              Sistemas tipo “solar home system” suelen ofrecer varias horas por carga (p. ej., hasta ~12 h a baja potencia) [3](https://www.dlight.com/products/d100)[4](https://www.solarlamp-led.com/Products/Solar-Home-Light-Kit.html)
+            </p>
+          </details>
+        </article>
+
+        <!-- 3 -->
+        <article class="indicator">
+          <span class="tag">3️⃣ Continuidad</span>
+          <h3>Continuidad del servicio</h3>
+          <p class="kpi-line">Indicador: % de días sin fallas eléctricas</p>
+
+          <div class="kpi-badges">
+            <span class="kpi-pill">Meta: ≥<span class="kpi-number" data-to="95">0</span>%</span>
+            <span class="kpi-pill">Registro: calendario</span>
+          </div>
+
+          <dl>
+            <dt>Cómo se mide</dt>
+            <dd>Registro mensual: <strong>(Días con energía funcional / días del mes) × 100</strong>.</dd>
+
+            <dt>Meta realista</dt>
+            <dd><strong>≥ 95%</strong> de continuidad mensual.</dd>
+
+            <dt>Cómo medirlo sin volverte loco</dt>
+            <dd>Calendario con “✅/❌” por día (o reporte semanal por WhatsApp).</dd>
+          </dl>
+        </article>
+
+        <!-- 4 -->
+        <article class="indicator">
+          <span class="tag">4️⃣ Adopción</span>
+          <h3>Adopción y uso correcto</h3>
+          <p class="kpi-line">Indicador: % de usuarios capacitados que usan el sistema correctamente</p>
+
+          <div class="kpi-badges">
+            <span class="kpi-pill">Meta: ≥<span class="kpi-number" data-to="85">0</span>%</span>
+            <span class="kpi-pill">Checklist: 6–8 puntos</span>
+          </div>
+
+          <dl>
+            <dt>Cómo se mide</dt>
+            <dd>Checklist simple: uso correcto del panel, cuidado de batería, no sobrecarga.</dd>
+
+            <dt>Meta realista</dt>
+            <dd><strong>≥ 85%</strong> de adopción correcta.</dd>
+
+            <dt>Cómo medirlo sin volverte loco</dt>
+            <dd>“Cumple” si logra ≥ 80% de la lista.</dd>
+          </dl>
+        </article>
+
+        <!-- 5 -->
+        <article class="indicator">
+          <span class="tag">5️⃣ Mantenimiento</span>
+          <h3>Mantenimiento resuelto</h3>
+          <p class="kpi-line">Indicador: tiempo de respuesta a incidencias (horas)</p>
+
+          <div class="kpi-badges">
+            <span class="kpi-pill">Meta: ≤<span class="kpi-number" data-to="72">0</span> h</span>
+            <span class="kpi-pill">Objetivo: 90% incidencias</span>
+          </div>
+
+          <dl>
+            <dt>Cómo se mide</dt>
+            <dd>Registro de tickets: hora de reporte → hora de solución.</dd>
+
+            <dt>Meta realista</dt>
+            <dd><strong>≤ 72 horas</strong> (resolver <strong>90%</strong> en ese tiempo).</dd>
+          </dl>
+        </article>
+
+        <!-- 6 -->
+        <article class="indicator">
+          <span class="tag">6️⃣ Impacto social</span>
+          <h3>Impacto social (seguridad y bienestar)</h3>
+          <p class="kpi-line">Indicador: ↑ percepción de seguridad y bienestar</p>
+
+          <div class="kpi-badges">
+            <span class="kpi-pill">Meta: +<span class="kpi-number" data-to="25">0</span>%</span>
+            <span class="kpi-pill">Encuesta: 3 preguntas</span>
+          </div>
+
+          <dl>
+            <dt>Cómo se mide</dt>
+            <dd>Encuesta corta (escala 1–5): seguridad, tranquilidad nocturna, capacidad de estudiar/trabajar.</dd>
+
+            <dt>Meta realista</dt>
+            <dd><strong>↑ ≥ 25%</strong> en percepción positiva.</dd>
+          </dl>
+        </article>
+      </div>
+
+      <h3 style="margin-top:1.5rem;">Tabla final lista para entregar</h3>
+      <div class="table-wrap" role="region" aria-label="Tabla de indicadores y metas" tabindex="0">
+        <table class="kpi-table">
+          <thead>
+            <tr>
+              <th>Indicador</th>
+              <th>Meta</th>
+              <th>Método de medición</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ahorro mensual en electricidad</td>
+              <td>↓ 40–60%</td>
+              <td>Comparación de recibos CFE (3 meses antes vs 3 meses después, usando promedio)</td>
+            </tr>
+            <tr>
+              <td>Horas de iluminación segura</td>
+              <td>↑ +4 a +8 h/día</td>
+              <td>Encuesta antes/después (pregunta directa sobre horas de iluminación confiable)</td>
+            </tr>
+            <tr>
+              <td>Continuidad del servicio</td>
+              <td>≥ 95%</td>
+              <td>Días sin fallas / días del mes × 100</td>
+            </tr>
+            <tr>
+              <td>Adopción y uso correcto</td>
+              <td>≥ 85%</td>
+              <td>Checklist + seguimiento (visita o llamada)</td>
+            </tr>
+            <tr>
+              <td>Mantenimiento resuelto</td>
+              <td>≤ 72 h</td>
+              <td>Registro de incidencias (hora reporte → hora solución)</td>
+            </tr>
+            <tr>
+              <td>Impacto social</td>
+              <td>↑ ≥ 25%</td>
+              <td>Encuesta de percepción (escala 1–5)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mini" style="margin-top:0.8rem;">
+        Traducción honesta: no inventas números; alineas tu proyecto con rangos típicos y metas medibles.
+      </p>
+    </section>
+
+    <!-- PANEL 7: MÉTODO -->
+    <section id="panel-metodo" class="tab-panel" role="tabpanel" aria-labelledby="tab-metodo" tabindex="0" hidden>
+      <h2>Metodología POUR (Diseño Accesible)</h2>
+
+      <p>
+        El sitio y la comunicación del proyecto siguen principios de accesibilidad para que la información sea clara
+        y usable por la mayoría de personas, incluso con limitaciones visuales, motrices o tecnológicas.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Perceptible</h3>
+          <ul>
+            <li>Contraste legible y textos destacados.</li>
+            <li>Imágenes con <strong>texto alternativo</strong> (alt).</li>
+            <li>Contenido estructurado con títulos y bloques.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Operable</h3>
+          <ul>
+            <li>Navegación por teclado (pestañas accesibles).</li>
+            <li>Foco visible en botones y enlaces.</li>
+            <li>“Saltar al contenido” para evitar navegación larga.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Comprensible</h3>
+          <ul>
+            <li>Lenguaje sencillo, sin tecnicismos innecesarios.</li>
+            <li>Explicaciones con ejemplos y listas cortas.</li>
+            <li>Estructura predecible (pestañas por tema).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Robusto</h3>
+          <ul>
+            <li>HTML semántico (main, section, nav).</li>
+            <li>Atributos ARIA en pestañas.</li>
+            <li>Compatible con lectores de pantalla.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 8: REFERENCIAS -->
+    <section id="panel-referencias" class="tab-panel" role="tabpanel" aria-labelledby="tab-referencias" tabindex="0" hidden>
+      <h2>Referencias (APA 7)</h2>
+
+      <div class="reference-list">
+        <p><strong>Accesibilidad y web:</strong></p>
+        <p>World Wide Web Consortium (W3C). (s. f.). <em>Tabs pattern (ARIA Authoring Practices Guide)</em>. https://www.w3.org/WAI/ARIA/apg/patterns/tabs/</p>
+        <p>World Wide Web Consortium (W3C). (s. f.). <em>Understanding Success Criterion 2.4.7: Focus Visible</em>. https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html</p>
+        <p>MDN Web Docs. (s. f.). <em>Working with the History API</em>. https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API</p>
+
+        <p style="margin-top:1rem;"><strong>KPI (rangos):</strong></p>
+        <p>Greenpeace España. (2023, 18 octubre). <em>¿Cuánto me puedo ahorrar si instalo placas solares?</em> https://es.greenpeace.org/es/noticias/cuanto-me-puedo-ahorrar-si-instalo-placas-solares/</p>
+        <p>d.light. (s. f.). <em>D100 Solar Home Systems</em>. https://www.dlight.com/products/d100</p>
+        <p>SolarLamp-LED. (s. f.). <em>Solar Home Light Kit</em>. https://www.solarlamp-led.com/Products/Solar-Home-Light-Kit.html</p>
+
+        <p class="mini" style="margin-top:0.8rem;">
+          Si tu profe pide “fecha de consulta”, te lo ajusto con la fecha exacta de entrega.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <h3><em><strong>EQUIPO DE TRABAJO - UVM</strong></em></h3>
+    <p>Carolina García Fuentes | Daniel Olivares Carreón | Francisco de Jesús Cerón Ochoa | Luis Iván Guillen Medina | Milton Bernardo Hernández Cuellar</p>
+    <p>Materia: <strong>Diseñar para compartir</strong> | Profesora: <strong>Rebeca Murillo Coria</strong></p>
+    <p>© 2026 Universidad del Valle de México | <strong>Actividad 2</strong></p>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Vista ampliada de imagen">
+    <div class="lightbox-inner">
+      <img id="lightboxImg" alt="" />
+      <div class="lightbox-bar">
+        <div class="cap" id="lightboxCap">Imagen</div>
+        <button type="button" id="lightboxClose">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * Tabs accesibles (APG WAI-ARIA) con:
+     * - Activación manual (Enter/Espacio)
+     * - Flechas solo mueven foco (no activan)
+     * - hidden para ocultar paneles (mejor para lectores)
+     * - Deep links con hash
+     * - Back/Forward con History API
+     */
+    (function () {
+      const tablist = document.querySelector('[role="tablist"]');
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function getPanelIdFromHash() {
+        const hash = (window.location.hash || '').replace('#', '');
+        if (!hash) return null;
+        const panel = document.getElementById(hash);
+        return panel ? hash : null;
+      }
+
+      function findTabByPanelId(panelId) {
+        return tabs.find(t => t.getAttribute('aria-controls') === panelId);
+      }
+
+      function setActiveTab(tab, { push = false, focus = true } = {}) {
+        const panelId = tab.getAttribute('aria-controls');
+        const panel = document.getElementById(panelId);
+        if (!panel) return;
+
+        // Update tabs
+        tabs.forEach(t => {
+          const selected = (t === tab);
+          t.setAttribute('aria-selected', selected ? 'true' : 'false');
+          t.tabIndex = selected ? 0 : -1;
+        });
+
+        // Update panels
+        panels.forEach(p => p.hidden = true);
+        panel.hidden = false;
+
+        // Deep link + History
+        const newHash = '#' + panelId;
+        if (push) {
+          history.pushState({ panelId }, '', newHash);
+        } else {
+          history.replaceState({ panelId }, '', newHash);
+        }
+
+        if (focus) tab.focus();
+
+        // Scroll
+        panel.scrollIntoView({
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
+          block: 'start'
+        });
+      }
+
+      // Click
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => setActiveTab(tab, { push: true, focus: true }));
+      });
+
+      // Keyboard
+      tablist.addEventListener('keydown', (e) => {
+        const activeEl = document.activeElement;
+        const currentIndex = tabs.indexOf(activeEl);
+        if (currentIndex === -1) return;
+
+        let nextIndex = null;
+
+        if (e.key === 'ArrowRight') nextIndex = (currentIndex + 1) % tabs.length;
+        if (e.key === 'ArrowLeft')  nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+        if (e.key === 'Home')       nextIndex = 0;
+        if (e.key === 'End')        nextIndex = tabs.length - 1;
+
+        // Move focus only
+        if (nextIndex !== null) {
+          e.preventDefault();
+          tabs[nextIndex].focus();
+          return;
+        }
+
+        // Manual activation
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          if (activeEl && activeEl.getAttribute('role') === 'tab') {
+            setActiveTab(activeEl, { push: true, focus: true });
+          }
+        }
+      });
+
+      // Initial load
+      const initialPanelId =
+        (history.state && history.state.panelId) ||
+        getPanelIdFromHash() ||
+        tabs[0].getAttribute('aria-controls');
+
+      const initialTab = findTabByPanelId(initialPanelId) || tabs[0];
+      setActiveTab(initialTab, { push: false, focus: false });
+
+      // Back/Forward
+      window.addEventListener('popstate', (e) => {
+        const panelId = (e.state && e.state.panelId) || getPanelIdFromHash();
+        if (!panelId) return;
+        const tab = findTabByPanelId(panelId);
+        if (tab) setActiveTab(tab, { push: false, focus: true });
+      });
+
+      // If user edits hash
+      window.addEventListener('hashchange', () => {
+        const panelId = getPanelIdFromHash();
+        if (!panelId) return;
+        const tab = findTabByPanelId(panelId);
+        if (tab) setActiveTab(tab, { push: false, focus: true });
+      });
+    })();
+
+    /* === Extra dinamismo / interacciones === */
+    (function(){
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Scroll progress + back to top
+      const bar = document.querySelector('.scroll-progress > span');
+      const toTop = document.getElementById('toTop');
+      function onScroll(){
+        const doc = document.documentElement;
+        const scrollTop = doc.scrollTop || document.body.scrollTop;
+        const height = doc.scrollHeight - doc.clientHeight;
+        const pct = height > 0 ? (scrollTop / height) * 100 : 0;
+        bar.style.width = pct + '%';
+
+        if (scrollTop > 600) toTop.hidden = false;
+        else toTop.hidden = true;
+      }
+      window.addEventListener('scroll', onScroll, { passive:true });
+      onScroll();
+      toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' }));
+
+      // Theme toggle (claro/oscuro)
+      const themeToggle = document.getElementById('themeToggle');
+      const key = 'cc_theme';
+      const saved = localStorage.getItem(key);
+      if(saved === 'dark') document.documentElement.classList.add('theme-dark');
+
+      themeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('theme-dark');
+        localStorage.setItem(key, document.documentElement.classList.contains('theme-dark') ? 'dark' : 'light');
+      });
+
+      // Slider simulador de ahorro
+      const sim = document.getElementById('simAhorro');
+      const simOut = document.getElementById('simOut');
+      if(sim && simOut){
+        sim.addEventListener('input', () => simOut.textContent = sim.value);
+      }
+
+      // Lightbox (clic para ampliar)
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCap = document.getElementById('lightboxCap');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      function openLightbox(img){
+        lightboxImg.src = img.currentSrc || img.src;
+        lightboxImg.alt = img.alt || 'Imagen ampliada';
+        lightboxCap.textContent = img.dataset.caption || img.alt || 'Imagen';
+        lightbox.setAttribute('aria-hidden','false');
+        lightboxClose.focus();
+      }
+      function closeLightbox(){
+        lightbox.setAttribute('aria-hidden','true');
+      }
+
+      document.addEventListener('click', (e) => {
+        const target = e.target;
+        if(target && target.tagName === 'IMG' && target.dataset.lightbox === 'true'){
+          openLightbox(target);
+        }
+      });
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false') closeLightbox();
+      });
+
+      // Toast simple para botones (mini-quiz)
+      let toastTimer = null;
+      function toast(text){
+        let el = document.getElementById('toast');
+        if(!el){
+          el = document.createElement('div');
+          el.id = 'toast';
+          el.style.position = 'fixed';
+          el.style.left = '50%';
+          el.style.bottom = '18px';
+          el.style.transform = 'translateX(-50%)';
+          el.style.background = 'rgba(0,0,0,.86)';
+          el.style.color = '#fff';
+          el.style.padding = '.7rem 1rem';
+          el.style.borderRadius = '12px';
+          el.style.zIndex = '10001';
+          el.style.fontWeight = '800';
+          el.style.boxShadow = '0 12px 30px rgba(0,0,0,.25)';
+          document.body.appendChild(el);
+        }
+        el.textContent = text;
+        el.style.display = 'block';
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => { el.style.display = 'none'; }, 1800);
+      }
+
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-toast]');
+        if(btn) toast(btn.dataset.toast);
+      });
+
+      // Counters KPI (animación al entrar a viewport)
+      const counters = document.querySelectorAll('.kpi-number[data-to]');
+      if('IntersectionObserver' in window && counters.length){
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if(!entry.isIntersecting) return;
+            const el = entry.target;
+            if(el.dataset.done === '1') return;
+            el.dataset.done = '1';
+            const to = parseInt(el.dataset.to, 10) || 0;
+            const duration = prefersReducedMotion ? 0 : 900;
+            const start = performance.now();
+            function tick(now){
+              const t = Math.min(1, (now - start) / duration);
+              const val = Math.round(to * t);
+              el.textContent = duration === 0 ? String(to) : String(val);
+              if(t < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+          });
+        }, { threshold: 0.25 });
+        counters.forEach(c => io.observe(c));
+      } else {
+        counters.forEach(c => c.textContent = c.dataset.to);
+      }
+
+      // Fallback si alguna imagen falla (placeholder)
+      document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', () => {
+          if(img.dataset.fallbackApplied) return;
+          img.dataset.fallbackApplied = '1';
+          const alt = (img.alt || 'Imagen').replace(/</g,'').replace(/>/g,'');
+          const svg =
+            `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700">
+              <defs>
+                <linearGradient id="g" x1="0" x2="1">
+                  <stop offset="0" stop-color="#E30613" stop-opacity="0.22"/>
+                  <stop offset="1" stop-color="#000000" stop-opacity="0.18"/>
+                </linearGradient>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#g)"/>
+              <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+                font-family="Segoe UI, Arial" font-size="36" fill="#111">
+                ${alt}
+              </text>
+            </svg>`;
+          img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+          img.style.cursor = 'default';
+        }, { once:false });
+      });
+    })();
+  </script>
+</body>
+</html>
