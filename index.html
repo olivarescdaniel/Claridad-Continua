@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Claridad Continua | Energía solar accesible</title>
+
+  <!-- SEO básico -->
+  <meta name="description" content="Claridad Continua ofrece kits solares accesibles con instalación, pagos flexibles, capacitación y soporte. Sitio diseñado con accesibilidad (POUR) y enfoque social." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claridad Continua | Energía solar accesible" />
+  <meta property="og:description" content="Kits solares accesibles con instalación, pagos flexibles, capacitación y soporte. Diseñado con metodología POUR." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    /* ===== Paleta: Rojo / Negro / Blanco ===== */
+    :root{
+      --bg:#ffffff;
+      --text:#0b0b0b;
+      --muted:#3a3a3a;
+      --card:#ffffff;
+      --border:#e6e6e6;
+
+      --brand:#d40000;         /* Rojo principal */
+      --brand-dark:#980000;    /* Rojo oscuro */
+      --ink:#000000;           /* Negro */
+      --shadow: 0 14px 40px rgba(0,0,0,.10);
+
+      --radius: 18px;
+      --max: 1100px;
+
+      --focus: 3px solid #d40000;
+
+      --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --title: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --subtitle: ui-serif, Georgia, "Times New Roman", serif;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.55;
+    }
+    a{ color:inherit; }
+    .container{ max-width: var(--max); margin:0 auto; padding: 18px; }
+
+    /* Accesibilidad */
+    :focus-visible{ outline: var(--focus); outline-offset: 3px; }
+    .skip-link{
+      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip-link:focus{
+      position:fixed; left:14px; top:14px; width:auto; height:auto; padding:10px 12px;
+      background:#fff; border:1px solid var(--border); border-radius:12px; z-index:9999;
+    }
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+      clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+
+    /* Header limpio */
+    header{
+      position: sticky; top:0; z-index:50;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav{
+      display:flex; gap:14px; align-items:center; justify-content:space-between;
+      padding: 12px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; text-decoration:none;
+    }
+    .logo-mark{
+      width:14px; height:14px; border-radius:4px;
+      background: var(--brand);
+      box-shadow: 0 6px 18px rgba(212,0,0,.22);
+      flex:0 0 auto;
+    }
+    .brand h1{
+      font-family: var(--title);
+      font-size: 16px; margin:0;
+      letter-spacing:.2px;
+    }
+    .brand span{
+      display:block; font-size: 12px; color: var(--muted);
+      font-family: var(--subtitle);
+    }
+
+    /* Menú mínimo para no distraer */
+    nav ul{
+      list-style:none; margin:0; padding:0;
+      display:flex; gap:10px; align-items:center;
+    }
+    nav a{
+      text-decoration:none;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a:hover{ border-color: var(--border); color: var(--text); }
+
+    /* CTA */
+    .cta{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 11px 14px;
+      border-radius: 14px;
+      background: var(--brand);
+      color: #ffffff;
+      font-weight: 800;
+      border: 1px solid rgba(0,0,0,.08);
+      text-decoration:none;
+      white-space:nowrap;
+      box-shadow: 0 10px 28px rgba(212,0,0,.18);
+      cursor:pointer;
+    }
+    .cta.secondary{
+      background: #ffffff;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      box-shadow:none;
+      font-weight: 800;
+    }
+    .cta:active{ transform: translateY(1px); }
+
+    /* Layout */
+    main{ padding-top: 8px; }
+    section{ padding: 18px 0; }
+
+    .panel{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    /* Hero */
+    .hero{ padding: 26px 0 10px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .headline{
+      font-family: var(--title);
+      font-size: clamp(26px, 3.6vw, 44px);
+      line-height: 1.08;
+      margin: 0 0 10px;
+      letter-spacing: -.4px;
+    }
+    .subhead{
+      font-family: var(--subtitle);
+      font-size: 16px;
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+    .usp{
+      border-left: 5px solid var(--brand);
+      padding-left: 12px;
+      margin: 12px 0 14px;
+    }
+    .badges{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin: 12px 0 16px;
+    }
+    .badge{
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 13px;
+      color: var(--text);
+      background: #fff;
+    }
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap:12px;
+      margin-top: 12px;
+    }
+
+    /* Imagen estática */
+    .media{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid var(--border);
+      background: #f6f6f6;
+      min-height: 260px;
+    }
+    .media img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    .caption{
+      padding: 10px 12px;
+      font-size: 12.5px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+
+    /* Títulos */
+    .section-title{
+      font-family: var(--title);
+      font-size: 22px;
+      margin: 0 0 10px;
+    }
+    .section-sub{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 15px;
+      font-family: var(--subtitle);
+    }
+
+    /* Grids */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .card{
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.06);
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-family: var(--title);
+      font-size: 16px;
+    }
+    .card p{ margin:0; color: var(--muted); }
+
+    .list{
+      margin:10px 0 0; padding-left: 18px;
+    }
+    .list li{ margin: 6px 0; }
+
+    /* Steps */
+    .steps{ counter-reset: step; display:grid; gap:12px; }
+    .step{
+      display:flex; gap:12px;
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+    .step::before{
+      counter-increment: step;
+      content: counter(step);
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      display:grid; place-items:center;
+      background: rgba(212,0,0,.10);
+      border: 1px solid rgba(212,0,0,.25);
+      font-weight: 900;
+      color: var(--brand-dark);
+      flex: 0 0 auto;
+    }
+    .help{
+      font-size: 13px;
+      color: var(--muted);
+      margin: 10px 0 0;
+    }
+
+    /* Social proof */
+    .quote{
+      font-family: var(--subtitle);
+      font-size: 15px;
+      color: var(--text);
+      margin:0 0 8px;
+    }
+    .who{ font-size: 13px; color: var(--muted); margin:0; }
+
+    /* Form */
+    form{ display:grid; gap: 10px; }
+    label{ font-size: 14px; color: var(--text); }
+    input{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      font-size: 15px;
+      font-family: var(--font);
+    }
+    input::placeholder{ color: #777; }
+    .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
+    .trust{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 10px;
+    }
+    .pill{
+      font-size: 12px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+    }
+
+    /* POUR */
+    .pour-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .tag{
+      display:inline-block;
+      font-size: 12px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    /* Galería */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .gitem{
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow: 0 10px 28px rgba(0,0,0,.06);
+    }
+    .gitem img{
+      width:100%; height: 170px;
+      object-fit: cover;
+      display:block;
+    }
+    .gcap{
+      padding:10px 12px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top:1px solid var(--border);
+    }
+
+    footer{
+      padding: 26px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      background:#fff;
+    }
+
+    /* Mobile */
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      nav ul{ display:none; } /* limpio */
+    }
+    @media (max-width: 700px){
+      .grid-2, .grid-3, .pour-grid{ grid-template-columns: 1fr; }
+      .form-row{ grid-template-columns: 1fr; }
+      .gallery{ grid-template-columns: 1fr; }
+      .gitem img{ height: 220px; }
+    }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header>
+    <div class="container">
+      <div class="nav" role="navigation" aria-label="Navegación principal">
+        <a class="brand" href="#inicio" aria-label="Ir al inicio de Claridad Continua">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <div>
+            <h1>Claridad Continua</h1>
+            <span>Energía que transforma el mañana</span>
+          </div>
+        </a>
+
+        <nav aria-label="Secciones">
+          <ul>
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#galeria">Imágenes</a></li>
+            <li><a href="#pour">Accesibilidad (POUR)</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <a class="cta" href="#contacto">Quiero energía solar accesible</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="container">
+
+    <!-- HERO -->
+    <section id="inicio" class="hero" aria-label="Sección principal">
+      <div class="hero-grid">
+        <div class="panel">
+          <h2 class="headline">Energía solar accesible para hogares que necesitan ahorrar hoy.</h2>
+
+          <p class="subhead">
+            Instalamos kits solares de bajo costo con pagos flexibles, capacitación y soporte,
+            pensados para familias con ingresos limitados y zonas con servicio eléctrico inestable.
+          </p>
+
+          <div class="usp">
+            <p class="subhead" style="margin:0;">
+              <strong>USP:</strong> No vendemos paneles caros. Ofrecemos acceso real a energía limpia con acompañamiento.
+            </p>
+          </div>
+
+          <div class="badges" aria-label="Resumen rápido de beneficios">
+            <span class="badge">Sin inversión inicial elevada</span>
+            <span class="badge">Pagos semanales o mensuales</span>
+            <span class="badge">Instalación incluida</span>
+            <span class="badge">Capacitación sencilla</span>
+            <span class="badge">Soporte técnico local</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="cta" href="#contacto">Solicitar diagnóstico gratuito</a>
+            <a class="cta secondary" href="#oferta">Ver qué incluye el kit</a>
+          </div>
+
+          <p class="help">
+            Objetivo único: que solicites información dejando solo datos indispensables. (Sin marearte con mil menús.)
+          </p>
+        </div>
+
+        <aside class="panel" aria-label="Imagen principal">
+          <div class="media">
+            <img src="img/instalacion-paneles.jpg"
+                 alt="Equipo instalando paneles solares en viviendas; ejemplo del proyecto de energía limpia." />
+            <div class="caption">Imagen estática real (Hero Image) con texto alternativo.</div>
+          </div>
+
+          <div class="help" style="margin-top:12px;">
+            Tip: si la imagen pesa mucho, optimízala para que cargue rápido.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROBLEMA + SOLUCIÓN -->
+    <section id="problema-solucion" aria-label="Problema y solución">
+      <div class="grid-2">
+        <div class="card">
+          <h3>El problema</h3>
+          <p>Muchas familias enfrentan costos altos, fallas constantes o falta de infraestructura confiable.</p>
+          <ul class="list">
+            <li>Altos costos de electricidad.</li>
+            <li>Servicio inestable por infraestructura limitada.</li>
+            <li>Alternativas contaminantes (leña/carbón) que afectan la salud.</li>
+            <li>Sistemas solares tradicionales fuera de presupuesto.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>La solución</h3>
+          <p>Kits solares accesibles con instalación, capacitación y soporte, diseñados para hogares con recursos limitados.</p>
+          <ul class="list">
+            <li>Panel solar + batería de respaldo</li>
+            <li>Instalación incluida</li>
+            <li>Manual visual sencillo</li>
+            <li>Capacitación básica</li>
+            <li>Microfinanciamiento sin intereses</li>
+            <li>Garantía y soporte técnico local</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section id="como-funciona" aria-label="Cómo funciona Claridad Continua">
+      <h2 class="section-title">Cómo funciona</h2>
+      <p class="section-sub">Proceso simple y entendible (Comprensible).</p>
+
+      <div class="grid-2">
+        <div class="steps" aria-label="Pasos del proceso">
+          <div class="step"><div><b>Registro</b><span class="help">Formulario corto con datos indispensables.</span></div></div>
+          <div class="step"><div><b>Diagnóstico</b><span class="help">Identificamos necesidades del hogar.</span></div></div>
+          <div class="step"><div><b>Instalación</b><span class="help">Técnico local instala el kit de forma segura.</span></div></div>
+          <div class="step"><div><b>Capacitación</b><span class="help">Manual visual + demostración sencilla.</span></div></div>
+          <div class="step"><div><b>Pago flexible</b><span class="help">Semanal o mensual.</span></div></div>
+          <div class="step"><div><b>Soporte</b><span class="help">Seguimiento y atención de incidencias.</span></div></div>
+        </div>
+
+        <div class="card" id="beneficios">
+          <h3>Beneficios (no solo características)</h3>
+          <ul class="list">
+            <li>Ahorro en el recibo de luz desde el primer mes.</li>
+            <li>Iluminación segura para estudiar y trabajar.</li>
+            <li>Más estabilidad y tranquilidad en el hogar.</li>
+            <li>Menor impacto ambiental.</li>
+          </ul>
+
+          <div class="trust" aria-label="Elementos de confianza">
+            <span class="pill">Política de datos clara</span>
+            <span class="pill">No compartimos tu información</span>
+            <span class="pill">Soporte técnico local</span>
+            <span class="pill">Diseño accesible (POUR)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA (IMÁGENES REALES) -->
+    <section id="galeria" aria-label="Galería de imágenes reales del proyecto">
+      <h2 class="section-title">Imágenes reales del proyecto</h2>
+      <p class="section-sub">Impacto social, instalación y uso real de la energía solar.</p>
+
+      <div class="gallery">
+
+        <div class="gitem">
+          <img src="img/comunidad-capacitacion.jpg"
+               alt="Capacitación comunitaria sobre uso de paneles solares en zona rural." />
+          <div class="gcap">Capacitación comunitaria</div>
+        </div>
+
+        <div class="gitem">
+          <img src="img/instalacion-paneles.jpg"
+               alt="Equipo instalando paneles solares en viviendas de comunidad urbana." />
+          <div class="gcap">Instalación de paneles</div>
+        </div>
+
+        <div class="gitem">
+          <img src="img/hogar-energia-solar.jpg"
+               alt="Vivienda con sistema solar, mostrando paneles en el techo y entorno." />
+          <div class="gcap">Hogar con energía solar</div>
+        </div>
+
+        <div class="gitem">
+          <img src="img/familia-noche-luz.jpg"
+               alt="Familia reunida de noche usando iluminación gracias a energía solar." />
+          <div class="gcap">Iluminación nocturna segura</div>
+        </div>
+
+        <div class="gitem">
+          <img src="img/conexion-panel.jpg"
+               alt="Manos conectando cables de un panel solar con herramientas y guantes." />
+          <div class="gcap">Conexión del sistema</div>
+        </div>
+
+        <div class="gitem">
+          <img src="img/trabajo-comunitario.jpg"
+               alt="Equipo técnico trabajando junto a la comunidad en un taller o explicación." />
+          <div class="gcap">Trabajo comunitario</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRUEBA SOCIAL -->
+    <section id="social-proof" aria-label="Prueba social y confianza">
+      <h2 class="section-title">Prueba social</h2>
+      <p class="section-sub">Testimonios para generar confianza inmediata.</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <p class="quote">“Desde que tenemos el kit solar, mis hijos pueden estudiar en la noche sin preocuparnos por el recibo de luz.”</p>
+          <p class="who">Familia beneficiaria, comunidad con servicio inestable</p>
+        </div>
+        <div class="card">
+          <p class="quote">“La capacitación fue sencilla y el soporte respondió rápido. Ahora tenemos luz sin depender de fallas.”</p>
+          <p class="who">Usuario del programa, zona semiurbana</p>
+        </div>
+        <div class="card">
+          <p class="quote">“Lo importante es que no fue un gasto imposible: el plan de pago sí se ajusta a la realidad.”</p>
+          <p class="who">Hogar con ingresos limitados, pago mensual</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section id="oferta" aria-label="Detalles de la oferta">
+      <h2 class="section-title">Oferta del proyecto</h2>
+      <p class="section-sub">Detalles claros, sin confusión.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Qué incluye</h3>
+          <ul class="list">
+            <li>Panel solar + batería de respaldo</li>
+            <li>Instalación segura</li>
+            <li>Capacitación y manual visual</li>
+            <li>Soporte y seguimiento</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Planes de pago</h3>
+          <ul class="list">
+            <li>Semanal</li>
+            <li>Quincenal</li>
+            <li>Mensual</li>
+          </ul>
+          <p class="help">Los montos se definen tras el diagnóstico del hogar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POUR -->
+    <section id="pour" aria-label="Accesibilidad con metodología POUR">
+      <h2 class="section-title">Accesibilidad: metodología POUR aplicada</h2>
+      <p class="section-sub">Diseño accesible para usuarios con diferentes capacidades.</p>
+
+      <div class="pour-grid">
+        <div class="card">
+          <span class="tag">P: Perceptible</span>
+          <h3>Información fácil de percibir</h3>
+          <ul class="list">
+            <li>Contraste alto (texto negro sobre blanco).</li>
+            <li>Imágenes con texto alternativo (alt).</li>
+            <li>Títulos jerárquicos (H1, H2, H3).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="tag">O: Operable</span>
+          <h3>Navegable y usable</h3>
+          <ul class="list">
+            <li>Se navega con teclado (Tab).</li>
+            <li>Botones grandes y claros.</li>
+            <li>Menú mínimo para no confundir.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="tag">U: Comprensible</span>
+          <h3>Lenguaje sencillo</h3>
+          <ul class="list">
+            <li>Proceso explicado paso a paso.</li>
+            <li>Formularios con etiquetas claras.</li>
+            <li>Evita tecnicismos innecesarios.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="tag">R: Robusto</span>
+          <h3>Funciona en más contextos</h3>
+          <ul class="list">
+            <li>Diseño responsivo (mobile first).</li>
+            <li>Enlaces descriptivos.</li>
+            <li>Estructura semántica compatible con lectores de pantalla.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Descripción (exactamente 5 líneas)</h3>
+        <div style="border:1px dashed var(--border); border-radius:16px; padding:14px; background:#fff;">
+          <p style="margin:0 0 6px;">Claridad Continua está diseñado para que cualquier persona perciba la información con textos legibles e imágenes con descripción.</p>
+          <p style="margin:0 0 6px;">El sitio es operable porque se navega fácilmente con menú claro, botones visibles y acceso desde teclado.</p>
+          <p style="margin:0 0 6px;">Es comprensible ya que explica el proceso con pasos simples, lenguaje directo y formularios con etiquetas claras.</p>
+          <p style="margin:0 0 6px;">Es robusto porque mantiene estructura ordenada, enlaces descriptivos y funciona en celular y computadora.</p>
+          <p style="margin:0;">Así, el sitio permite acceso a la propuesta solar sin barreras para usuarios con diferentes capacidades.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO / CTA FINAL -->
+    <section id="contacto" aria-label="Formulario de contacto">
+      <h2 class="section-title">Solicitar información</h2>
+      <p class="section-sub">CTA visible y formulario sencillo (first-party data).</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Formulario</h3>
+
+          <form id="leadForm" novalidate aria-describedby="formHelp">
+            <div class="form-row">
+              <div>
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required />
+              </div>
+              <div>
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" name="telefono" type="tel" autocomplete="tel" placeholder="Ej. 4421234567" required inputmode="tel" />
+              </div>
+            </div>
+
+            <div>
+              <label for="comunidad">Comunidad / Colonia</label>
+              <input id="comunidad" name="comunidad" type="text" placeholder="¿Dónde te gustaría el diagnóstico?" required />
+            </div>
+
+            <p class="help" id="formHelp">Tus datos se usan solo para contactarte. No los compartimos.</p>
+
+            <button class="cta" type="submit">Quiero energía solar accesible</button>
+
+            <div class="trust" aria-label="Confianza y seguridad">
+              <span class="pill">HTTPS/SSL (al publicarlo)</span>
+              <span class="pill">Política de privacidad</span>
+              <span class="pill">Sin spam</span>
+              <span class="pill">Respuesta ≤ 72h</span>
+            </div>
+
+            <p class="help" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Velocidad y 2026</h3>
+          <ul class="list">
+            <li>Imágenes optimizadas para carga rápida (&lt; 3 segundos).</li>
+            <li>Datos propios (first-party) listos para integración con CRM.</li>
+            <li>SEO básico: títulos, estructura y descripciones.</li>
+          </ul>
+          <a class="cta secondary" href="#inicio">Regresar al inicio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCIAS -->
+    <section id="referencias" aria-label="Referencias">
+      <h2 class="section-title">Referencias (APA)</h2>
+      <div class="card">
+        <ul class="list">
+          <li>Carranza, R., &amp; Carranza, R. (2025). <i>Integración de techo solar en viviendas populares: Soluciones de bajo costo para hogares mexicanos</i>. Solar Change.</li>
+          <li>AMIF. (s. f.). <i>FIDE y Sener impulsan acceso a energía solar en hogares de bajos ingresos</i>.</li>
+          <li>Programa Techos Solares para el Bienestar. (s. f.). <i>Inicio</i>.</li>
+          <li>Real Estate Market &amp; Lifestyle. (s. f.). <i>Paneles solares para tu casa: Puedes reducir hasta 90% tu recibo de luz</i>.</li>
+        </ul>
+        <p class="help">Nota: estas referencias son de ejemplo; si tu profe pide fuentes verificables, te las armo bien con links y formato APA real.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p style="margin:0 0 8px;">
+        <strong>Claridad Continua</strong> | Energía que transforma el mañana
+      </p>
+      <p style="margin:0;">
+        © <span id="year"></span> Sitio demostrativo académico. Accesibilidad (POUR) + mobile-first.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('leadForm');
+    const status = document.getElementById('formStatus');
+
+    function setStatus(msg, isError=false){
+      status.textContent = msg;
+      status.style.color = isError ? 'var(--brand)' : 'var(--brand-dark)';
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre');
+      const telefono = document.getElementById('telefono');
+      const comunidad = document.getElementById('comunidad');
+
+      if(!nombre.value.trim() || !telefono.value.trim() || !comunidad.value.trim()){
+        setStatus('Faltan datos: completa Nombre, Teléfono y Comunidad/Colonia.', true);
+        return;
+      }
+
+      setStatus('Solicitud enviada. Te contactaremos en menos de 72 horas.');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
